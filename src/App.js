@@ -78,6 +78,7 @@ function App() {
 }
 
 function Header() {
+  //3) Consuming the context value
   const { onClearPosts } = useContext(PostContext);
 
   return (
@@ -94,7 +95,8 @@ function Header() {
   );
 }
 
-function SearchPosts({ searchQuery, setSearchQuery }) {
+function SearchPosts() {
+  const { searchQuery, setSearchQuery } = useContext(PostContext);
   return (
     <input
       value={searchQuery}
