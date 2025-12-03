@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState, useContext } from "react";
 import { faker } from "@faker-js/faker";
 
 function createRandomPost() {
@@ -64,10 +64,10 @@ function App() {
         </button>
 
         <Header
-          posts={searchedPosts}
-          onClearPosts={handleClearPosts}
-          searchQuery={searchQuery}
-          setSearchQuery={setSearchQuery}
+        // posts={searchedPosts}
+        // onClearPosts={handleClearPosts}
+        // searchQuery={searchQuery}
+        // setSearchQuery={setSearchQuery}
         />
         <Main posts={searchedPosts} onAddPost={handleAddPost} />
         <Archive onAddPost={handleAddPost} />
@@ -77,18 +77,17 @@ function App() {
   );
 }
 
-function Header({ posts, onClearPosts, searchQuery, setSearchQuery }) {
+function Header() {
+  const { onClearPosts } = useContext(PostContext);
+
   return (
     <header>
       <h1>
         <span>⚛️</span>The Atomic Blog
       </h1>
       <div>
-        <Results posts={posts} />
-        <SearchPosts
-          searchQuery={searchQuery}
-          setSearchQuery={setSearchQuery}
-        />
+        <Results />
+        <SearchPosts />
         <button onClick={onClearPosts}>Clear posts</button>
       </div>
     </header>
