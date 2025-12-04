@@ -70,7 +70,7 @@ function App() {
         // setSearchQuery={setSearchQuery}
         />
         <Main />
-        <Archive onAddPost={handleAddPost} />
+        <Archive />
         <Footer />
       </section>
     </PostContext.Provider>
@@ -102,6 +102,8 @@ function SearchPosts() {
       value={searchQuery}
       onChange={(e) => setSearchQuery(e.target.value)}
       placeholder="Search posts..."
+      id="searchPost"
+      name="searchPost"
     />
   );
 }
@@ -142,16 +144,20 @@ function FormAddPost() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} name="blogSubmit" id="blogSubmit">
       <input
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         placeholder="Post title"
+        id="postTitle"
+        name="postTitle"
       />
       <textarea
         value={body}
         onChange={(e) => setBody(e.target.value)}
         placeholder="Post body"
+        id="postBody"
+        name="postBody"
       />
       <button>Add post</button>
     </form>
@@ -172,7 +178,8 @@ function List() {
   );
 }
 
-function Archive({ onAddPost }) {
+function Archive() {
+  const { onAddPost } = useContext(PostContext);
   // Here we don't need the setter function. We're only using state to store these posts because the callback function passed into useState (which generates the posts) is only called once, on the initial render. So we use this trick as an optimization technique, because if we just used a regular variable, these posts would be re-created on every render.
   // I could also move the posts outside the components, but I wanted to use this trick 😉
   const [posts] = useState(() =>
