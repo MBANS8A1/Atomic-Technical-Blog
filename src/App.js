@@ -63,12 +63,7 @@ function App() {
           {isFakeDark ? "☀️" : "🌙"}
         </button>
 
-        <Header
-        // posts={searchedPosts}
-        // onClearPosts={handleClearPosts}
-        // searchQuery={searchQuery}
-        // setSearchQuery={setSearchQuery}
-        />
+        <Header />
         <Main />
         <Archive />
         <Footer />
