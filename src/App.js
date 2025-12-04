@@ -53,22 +53,30 @@ function App() {
         onClearPosts: handleClearPosts,
         searchQuery,
         setSearchQuery,
+        isFakeDark,
+        setIsFakeDark,
       }}
     >
       <section>
-        <button
-          onClick={() => setIsFakeDark((isFakeDark) => !isFakeDark)}
-          className="btn-fake-dark-mode"
-        >
-          {isFakeDark ? "☀️" : "🌙"}
-        </button>
-
+        <LightMode />
         <Header />
         <Main />
         <Archive />
         <Footer />
       </section>
     </PostContext.Provider>
+  );
+}
+
+function LightMode() {
+  const { isFakeDark, setIsFakeDark } = useContext(PostContext);
+  return (
+    <button
+      onClick={() => setIsFakeDark((isFakeDark) => !isFakeDark)}
+      className="btn-fake-dark-mode"
+    >
+      {isFakeDark ? "☀️" : "🌙"}
+    </button>
   );
 }
 
