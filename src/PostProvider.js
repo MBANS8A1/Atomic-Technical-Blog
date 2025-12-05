@@ -47,4 +47,4 @@ function PostProvider() {
   );
 }
 
-export default PostProvider;
+export { PostContext, PostProvider };
