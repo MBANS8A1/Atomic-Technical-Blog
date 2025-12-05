@@ -11,7 +11,6 @@ function createRandomPost() {
 
 function App() {
   return (
-    //2) Provide the value to the child components
     <PostProvider>
       <section>
         <LightMode />

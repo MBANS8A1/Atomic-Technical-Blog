@@ -36,6 +36,7 @@ function PostProvider({ children }) {
   }
 
   return (
+    //2) Provide the value to the child components
     <PostContext.Provider
       value={{
         posts: searchedPosts,
