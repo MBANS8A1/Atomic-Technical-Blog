@@ -20,25 +20,14 @@ function App() {
 
   return (
     //2) Provide the value to the child components
-    <PostContext.Provider
-      value={{
-        posts: searchedPosts,
-        onAddPost: handleAddPost,
-        onClearPosts: handleClearPosts,
-        searchQuery,
-        setSearchQuery,
-        isFakeDark,
-        setIsFakeDark,
-      }}
-    >
-      <section>
-        <LightMode />
-        <Header />
-        <Main />
-        <Archive />
-        <Footer />
-      </section>
-    </PostContext.Provider>
+
+    <section>
+      <LightMode />
+      <Header />
+      <Main />
+      <Archive />
+      <Footer />
+    </section>
   );
 }
 

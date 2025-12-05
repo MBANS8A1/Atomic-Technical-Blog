@@ -33,6 +33,18 @@ function PostProvider() {
   function handleClearPosts() {
     setPosts([]);
   }
+
+  return (
+    <PostContext.Provider
+      value={{
+        posts: searchedPosts,
+        onAddPost: handleAddPost,
+        onClearPosts: handleClearPosts,
+        searchQuery,
+        setSearchQuery,
+      }}
+    ></PostContext.Provider>
+  );
 }
 
 export default PostProvider;
