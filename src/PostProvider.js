@@ -12,6 +12,7 @@ function createRandomPost() {
 const PostContext = createContext();
 
 function PostProvider({ children }) {
+  const [isFakeDark, setIsFakeDark] = useState(false);
   const [posts, setPosts] = useState(() =>
     Array.from({ length: 30 }, () => createRandomPost())
   );
@@ -42,6 +43,8 @@ function PostProvider({ children }) {
         onClearPosts: handleClearPosts,
         searchQuery,
         setSearchQuery,
+        isFakeDark,
+        setIsFakeDark,
       }}
     >
       {children}

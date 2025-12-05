@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext } from "react";
 import { faker } from "@faker-js/faker";
 import { PostContext, PostProvider } from "./PostProvider";
 
@@ -10,15 +10,6 @@ function createRandomPost() {
 }
 
 function App() {
-  const [isFakeDark, setIsFakeDark] = useState(false);
-  // Whenever `isFakeDark` changes, we toggle the `fake-dark-mode` class on the HTML element (see in "Elements" dev tool).
-  useEffect(
-    function () {
-      document.documentElement.classList.toggle("fake-dark-mode");
-    },
-    [isFakeDark]
-  );
-
   return (
     //2) Provide the value to the child components
     <PostProvider>
@@ -35,6 +26,13 @@ function App() {
 
 function LightMode() {
   const { isFakeDark, setIsFakeDark } = useContext(PostContext);
+  // Whenever `isFakeDark` changes, we toggle the `fake-dark-mode` class on the HTML element (see in "Elements" dev tool).
+  useEffect(
+    function () {
+      document.documentElement.classList.toggle("fake-dark-mode");
+    },
+    [isFakeDark]
+  );
   return (
     <button
       onClick={() => setIsFakeDark((isFakeDark) => !isFakeDark)}
