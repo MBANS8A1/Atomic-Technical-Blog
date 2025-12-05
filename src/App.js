@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState, useContext } from "react";
 import { faker } from "@faker-js/faker";
+import PostProvider from "./PostProvider";
 
 function createRandomPost() {
   return {
@@ -20,14 +21,15 @@ function App() {
 
   return (
     //2) Provide the value to the child components
-
-    <section>
-      <LightMode />
-      <Header />
-      <Main />
-      <Archive />
-      <Footer />
-    </section>
+    <PostProvider>
+      <section>
+        <LightMode />
+        <Header />
+        <Main />
+        <Archive />
+        <Footer />
+      </section>
+    </PostProvider>
   );
 }
 
