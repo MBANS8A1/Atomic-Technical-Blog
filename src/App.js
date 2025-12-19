@@ -11,15 +11,15 @@ function createRandomPost() {
 
 function App() {
   return (
-    <PostProvider>
-      <section>
+    <section>
+      <PostProvider>
         <LightMode />
         <Header />
         <Main />
         <Archive />
         <Footer />
-      </section>
-    </PostProvider>
+      </PostProvider>
+    </section>
   );
 }
 
